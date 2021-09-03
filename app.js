@@ -21,7 +21,7 @@ const searchBook = () => {
 
 const displayResults = (books, total) => {
     // ------------total result-----------------
-    if (total == "0") {
+    if (total === 0) {
         const totalResult = document.getElementById("total-result");
         totalResult.innerText = `No result found`;
     }
