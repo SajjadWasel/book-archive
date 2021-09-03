@@ -12,13 +12,23 @@ const searchBook = () => {
         .then(res => res.json())
         .then(data => displayResults(data.docs, data.numFound));
 
+    /* Total result clearing */
+    const totalResult = document.getElementById("total-result");
+    totalResult.innerText = ``;
+
 }
 
 
 const displayResults = (books, total) => {
     // ------------total result-----------------
-    const totalResult = document.getElementById("total-result");
-    totalResult.innerText = `Total Result: ${total}`;
+    if (total == "0") {
+        const totalResult = document.getElementById("total-result");
+        totalResult.innerText = `No result found`;
+    }
+    else {
+        const totalResult = document.getElementById("total-result");
+        totalResult.innerText = `Total Result: ${total}`;
+    }
     //---------------books---------------------
     const resultContainer = document.getElementById("result-container");
     books.forEach(book => {
